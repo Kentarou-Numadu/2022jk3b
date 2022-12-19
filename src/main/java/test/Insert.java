@@ -1,8 +1,11 @@
 package test;
 
 import java.io.IOException;
+import java.sql.Date;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -50,9 +53,23 @@ public class Insert extends HttpServlet {
 		
 		//---エラーチェック
 		boolean errSw = false;
+		
+		Date Birth = null;
+		Date Status_day = null;
 		int id = -1;
 		int status = -1;
+		strTelephone = strTelephone.replaceAll("　", ""); //全角スペースを空文字に置換
+        strTelephone = strTelephone.replaceAll(" ", "");
+        strP_Telephone = strP_Telephone.replaceAll("　", ""); //全角スペースを空文字に置換
+        strP_Telephone = strP_Telephone.replaceAll(" ", "");
 		String strPattern = "^[0-9][0-9¥¥-]*$";
+		Pattern p = Pattern.compile(strPattern); /* 正規表現オブジェクトの準備 */
+		String strPattern2 = "^[0-9]{7}$";
+		Pattern p2 = Pattern.compile(strPattern2);
+		Matcher m = p.matcher(strTelephone); 
+		Matcher m2 = p2.matcher(strZip);
+		Matcher m3 = p2.matcher(strP_Zip);
+		Matcher m4 = p.matcher(strP_Telephone);
 		//---番号が空か、値が数値かを判断
 		if(strId == null || strId == "") {
 			message.add("番号が入力されていません");
@@ -79,12 +96,25 @@ public class Insert extends HttpServlet {
 		if(strBirth == null || strBirth == "") {
 			message.add("生年月日が入力されていません");
 			errSw = true;
+		}else{
+			try {
+				Birth = Date.valueOf(strBirth);
+			}catch(Exception e) {
+				message.add("生年月日が日付型ではありません");
+				errSw = true;
+			}
 		}
+			
 		
 		if(strZip == null || strZip == "") {
 			message.add("本人郵便番号が入力されていません");
 			errSw = true;
 		
+		}else if(m2.find()) {
+			
+		}else {
+			message.add("本人郵便番号に七桁までの数字を入れて下さい");
+			errSw = true;
 		}
 		
 		if(strAddress == null || strAddress == "") {
@@ -94,6 +124,11 @@ public class Insert extends HttpServlet {
 		
 		if(strTelephone == null || strTelephone == "") {
 			message.add("本人電話番号が入力されていません");
+			errSw = true;
+		}else if(m.find()) {
+			
+		}else {
+			message.add("本人電話番号に数字とハイフン（-）を入れて下さい");
 			errSw = true;
 		}
 		
@@ -117,6 +152,13 @@ public class Insert extends HttpServlet {
 		if(strStatus_day == null || strStatus_day == "") {
 			message.add("在籍状態確定日が入力されていません");
 			errSw = true;
+		}else{
+			try {
+				Status_day = Date.valueOf(strStatus_day);
+			}catch(Exception e) {
+				message.add("在籍状態確定日が日付型ではありません");
+				errSw = true;
+			}
 		}
 		
 		if(strP_Name == null || strP_Name == "") {
@@ -132,6 +174,11 @@ public class Insert extends HttpServlet {
 		if(strP_Zip == null || strP_Zip == "") {
 			message.add("保護者郵便番号が入力されていません");
 			errSw = true;
+		}else if(m3.find()) {
+			
+		}else {
+			message.add("保護者郵便番号に七桁までの数字を入れて下さい");
+			errSw = true;
 		}
 		
 		if(strP_Addres == null || strP_Addres == "") {
@@ -141,6 +188,11 @@ public class Insert extends HttpServlet {
 		
 		if(strP_Telephone == null || strP_Telephone == "") {
 			message.add("保護者電話番号が入力されていません");
+			errSw = true;
+		}else if(m4.find()) {
+			
+		}else {
+			message.add("保護者電話番号に数字とハイフン（-）を入れて下さい");
 			errSw = true;
 		}
 		
@@ -159,13 +211,13 @@ public class Insert extends HttpServlet {
 			bean.setId(id);
 			bean.setName(strSimei);
 			bean.setFurigana(strFurigana);
-			bean.setBirth(strBirth);
+			bean.setBirth(Birth);
 			bean.setZip(strZip);
 			bean.setAddress(strAddress);
 			bean.setTelephone(strTelephone);
 			bean.setMail(strMail);
 			bean.setStatus(status);
-			bean.setStatus_day(strStatus_day);
+			bean.setStatus_day(Status_day);
 			bean.setP_Name(strP_Name);
 			bean.setP_Furigana(strP_Furigana);
 			bean.setP_Zip(strP_Zip);

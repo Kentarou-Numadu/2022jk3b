@@ -40,17 +40,15 @@ public class Update extends HttpServlet {
 			if(bean ==null) {
 				errflag = true;
 			}
-			
-			//---エラーあればdisplayallへ戻る
-			if(errflag) {
+		}
+		//---エラーあればdisplayallへ戻る
+		if(errflag) {
 				response.sendRedirect("displayall");
 			}else {
 				//---更新用のフォームを呼び出す
 				request.setAttribute("data", bean);
 				request.getRequestDispatcher("Update.jsp").forward(request, response);
 			}
-			
-		}
 	}
 
 }
