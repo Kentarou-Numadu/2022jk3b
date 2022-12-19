@@ -1,6 +1,7 @@
 package bean;
 
 import java.io.Serializable;
+import java.sql.Date;
 
 public class DataBean implements Serializable{
 	private static final long serialVersionUID = 1L;
@@ -8,13 +9,13 @@ public class DataBean implements Serializable{
 	private int id;
 	private String name;
 	private String furigana;
-	private String birth_day;
+	private Date birth_day;
 	private String zip_code;
 	private String address;
 	private String telephone;
 	private String mail;
 	private int status;
-	private String status_day;
+	private Date status_day;
 	private String p_name;
 	private String p_furigana;
 	private String p_zip;
@@ -34,7 +35,7 @@ public class DataBean implements Serializable{
 		this.furigana = furigana;
 	}
 	
-	public void setBirth(String birth_day) {
+	public void setBirth(Date birth_day) {
 		this.birth_day = birth_day;
 	}
 	
@@ -58,8 +59,8 @@ public class DataBean implements Serializable{
 		this.status = status;
 	}
 	
-	public void setStatus_day(String status_day) {
-		this.status_day = status_day;
+	public void setStatus_day(Date status_day2) {
+		this.status_day = status_day2;
 	}
 	
 	public void setP_Name(String p_name) {
@@ -98,7 +99,7 @@ public class DataBean implements Serializable{
 		return this.furigana;
 	}
 	
-	public String getBirth() {
+	public Date getBirth() {
 		return this.birth_day;
 	}
 	
@@ -126,7 +127,7 @@ public class DataBean implements Serializable{
 		return this.p_name;
 	}
 	
-	public String getStatus_day() {
+	public Date getStatus_day() {
 		return this.status_day;
 	}
 	
