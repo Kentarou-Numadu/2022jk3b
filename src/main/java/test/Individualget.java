@@ -11,20 +11,19 @@ import javax.servlet.http.HttpServletResponse;
 import bean.DataBean;
 import dao.DAO;
 
-
-@WebServlet("/update")
-public class Update extends HttpServlet {
+@WebServlet("/individualget")
+public class Individualget extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-       
-    public Update() {
+
+    public Individualget() {
         super();
-        
+        // TODO Auto-generated constructor stub
     }
 
-
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+request.setCharacterEncoding("utf-8");
 		
-		request.setCharacterEncoding("utf-8");
+		// ---get送信されるページ番号を取得する無ければ1
 		
 		DataBean bean = null;
 		boolean errflag = false;
@@ -47,7 +46,7 @@ public class Update extends HttpServlet {
 			}else {
 				//---更新用のフォームを呼び出す
 				request.setAttribute("data", bean);
-				request.getRequestDispatcher("Update.jsp").forward(request, response);
+				request.getRequestDispatcher("Individual.jsp").forward(request, response);
 			}
 	}
 

@@ -45,7 +45,8 @@
 		<form class="formarea" method="get" action="select">
 			キーワード
 			<input type="text" name="keyword">
-			<button type="submit" name="submit" value="search">検索</button>
+			<button type="submit" name="submit" value="search">検索</button><br>
+			
 		</form>
 		<form class="formarea" method="get" action="select">
 			<table>
@@ -137,6 +138,7 @@
 			<div class="buttonarea">
 				<button type="submit" name="submit" value="insert">新規登録</button>
 				<button type="submit" name="submit" value="update">編集</button>
+				<button type="submit" name="submit" value="individual">個別表示</button>
 			</div>
 		</form>
 	</main>

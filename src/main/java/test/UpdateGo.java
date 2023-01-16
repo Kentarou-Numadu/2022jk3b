@@ -1,8 +1,11 @@
 package test;
 
 import java.io.IOException;
+import java.sql.Date;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -54,6 +57,19 @@ public class UpdateGo extends HttpServlet {
 		String strP_Addres = request.getParameter("p_address");
 		String strP_Telephone = request.getParameter("p_telephone");
 		String strP_Mail = request.getParameter("p_mail");
+		
+		Date Birth = null;
+		Date Status_day = null;
+		
+		String strPattern = "^[0-9][0-9¥¥-]*$";
+		Pattern p = Pattern.compile(strPattern); /* 正規表現オブジェクトの準備 */
+		String strPattern2 = "^[0-9]{7}$";
+		Pattern p2 = Pattern.compile(strPattern2);
+		Matcher m = p.matcher(strTelephone); 
+		Matcher m2 = p2.matcher(strZip);
+		Matcher m3 = p2.matcher(strP_Zip);
+		Matcher m4 = p.matcher(strP_Telephone);
+		
 		//---IDの設定（エラーチェックもする）
 		try {
 			bean.setId(Integer.parseInt(strId));
@@ -77,13 +93,20 @@ public class UpdateGo extends HttpServlet {
 		if (strBirth.isEmpty()) {
 			list.add("生年月日の値が未設定になっています");
 		}else {
-			bean.setBirth(strBirth);
+			try {
+				Birth = Date.valueOf(strBirth);
+			}catch(Exception e) {
+				list.add("生年月日が日付型ではありません");
+			}
+			bean.setBirth(Birth);
 		}
 		
 		if (strZip.isEmpty()) {
 			list.add("本人郵便番号の値が未設定になっています");
-		}else {
+		}else if(m2.find()){
 			bean.setZip(strZip);
+		}else {
+			list.add("本人郵便番号に七桁までの数字を入れて下さい");
 		}
 		
 		if (strAddress.isEmpty()) {
@@ -94,8 +117,10 @@ public class UpdateGo extends HttpServlet {
 		
 		if (strTelephone.isEmpty()) {
 			list.add("本人電話番号の値が未設定になっています");
-		}else {
+		}else if(m.find()){
 			bean.setTelephone(strTelephone);
+		}else {
+			list.add("本人電話番号に数字とハイフン（-）を入れて下さい");
 		}
 		
 		if (strMail.isEmpty()) {
@@ -113,7 +138,12 @@ public class UpdateGo extends HttpServlet {
 		if (strStatus_day.isEmpty()) {
 			list.add("在籍状態確定日の値が未設定になっています");
 		}else {
-			bean.setStatus_day(strStatus_day);
+			try {
+				Status_day = Date.valueOf(strStatus_day);
+			}catch(Exception e) {
+				list.add("在籍状態確定日が日付型ではありません");
+			}
+			bean.setStatus_day(Status_day);
 		}
 		
 		if (strP_Name.isEmpty()) {
@@ -130,8 +160,10 @@ public class UpdateGo extends HttpServlet {
 		
 		if (strP_Zip.isEmpty()) {
 			list.add("保護者郵便番号の値が未設定になっています");
-		}else {
+		}else if(m3.find()){
 			bean.setP_Zip(strP_Zip);
+		}else {
+			list.add("保護者郵便番号に七桁までの数字を入れて下さい");
 		}
 		
 		if (strP_Addres.isEmpty()) {
@@ -142,8 +174,10 @@ public class UpdateGo extends HttpServlet {
 		
 		if (strP_Telephone.isEmpty()) {
 			list.add("保護者電話番号の値が未設定になっています");
-		}else {
+		}else if(m4.find()){
 			bean.setP_Telephone(strP_Telephone);
+		}else {
+			list.add("保護者電話番号に数字とハイフン（-）を入れて下さい");
 		}
 		
 		if (strP_Mail.isEmpty()) {
