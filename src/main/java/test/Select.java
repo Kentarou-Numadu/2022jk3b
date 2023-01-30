@@ -37,6 +37,9 @@ public class Select extends HttpServlet {
 			}else if (proc.equals("individual")) {
 				request.getRequestDispatcher("individualget").forward(request, response);
 				return;
+			}else if (proc.equals("status")) {
+				request.getRequestDispatcher("status").forward(request, response);
+				return;
 			}else if (proc.equals("search")) {
 				request.getRequestDispatcher("displayall").forward(request, response);
 				return;

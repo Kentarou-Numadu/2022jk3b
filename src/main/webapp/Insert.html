@@ -2,28 +2,103 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>データ追加画面</title>
+	<style type="text/css">
+			table {
+			border-collapse: collapse;
+			table-layout: fixed
+		}
+		table, th, td {
+			border: solid 1px #000000;
+		}
+		th, td {
+		padding: 5px;
+		}
+		th{
+			text-align:left;
+			background-color:#DDDDDD;
+		}
+		input{
+			width:350px;
+		}
+		.formarea {
+			margin-left: 30px;
+			
+		}
+	</style>
 </head>
 <body>
-	<h1>データの追加</h1>
-	<form method="get" action="insert">
-		<p>学籍番号<input type="number" name="id"></p>
-		<p>氏名(漢字)<input type="text" name="simei"></p>
-		<p>氏名（ふりがな）<input type="text" name="furigana"></p>
-		<p>生年月日<input type="date" name="birth"></p>
-		<p>本人郵便番号<input type="text" name="zip" maxlength="7"></p>
-		<p>本人住所<input type="text" name="address"></p>
-		<p>本人電話番号<input type="text" name="telephone"></p>
-		<p>本人メールアドレス<input type="email" name="mail"></p>
-		<p>在籍状態<input type="number" name="status"></p>
-		<p>在籍状態確定日<input type="date" name="status_day"></p>
-		<p>保護者氏名（漢字）<input type="text" name="p_name"></p>
-		<p>保護者氏名（ふりがな）<input type="text" name="p_furigana"></p>
-		<p>保護者郵便番号<input type="text" name="p_zip" maxlength="7"></p>
-		<p>保護者住所<input type="text" name="p_address"></p>
-		<p>保護者電話番号<input type="text" name="p_telephone"></p>
-		<p>保護者メールアドレス<input type="email" name="p_mail"></p>
-		<button type="submit">送信</button>
+	<header>
+		<h1>データの追加</h1>
+	</header>
+	<form class="formarea" method="get" action="insert">
+		<table>
+			<tr>
+			<th> 学籍番号</th>
+			<td width="360px"><input type="number" name="id"></td>
+			</tr>
+			<tr>
+			<th>氏名(漢字)</th>
+			<td><input type="text" name="simei"></td>
+			</tr>
+			<tr>
+			<th>氏名（ふりがな）</th>
+			<td><input type="text" name="furigana"></td>
+			</tr>
+			<tr>
+			<th>生年月日</th>
+			<td><input type="date" name="birth"></td>
+			</tr>
+			<tr>
+			<th>本人郵便番号</th>
+			<td><input type="text" name="zip" maxlength="7"></td>
+			</tr>
+			<tr>
+			<th>本人住所</th>
+			<td><input type="text" name="address"></td>
+			</tr>
+			<tr>
+			<th>本人電話番号</th>
+			<td><input type="text" name="telephone"></td>
+			<tr>
+			<th>本人メールアドレス</th>
+			<td><input type="email" name="mail"></td>
+			</tr>
+			<tr>
+			<th>在籍状態</th>
+			<td><input type="number" name="status"></td>
+			</tr>
+			<tr>
+			<th>在籍状態確定日</th>
+			<td><input type="date" name="status_day"></td>
+			</tr>
+			<tr>
+			<th>保護者氏名（漢字）</th>
+			<td><input type="text" name="p_name"></td>
+			</tr>
+			<tr>
+			<th>保護者氏名（ふりがな）</th>
+			<td><input type="text" name="p_furigana"></td>
+			</tr>
+			<tr>
+			<th>保護者郵便番号</th>
+			<td><input type="text" name="p_zip" maxlength="7"></td>
+			</tr>
+			<tr>
+			<th>保護者住所</th>
+			<td><input type="text" name="p_address"></td>
+			</tr>
+			<tr>
+			<th>保護者電話番号</th>
+			<td><input type="text" name="p_telephone"></td>
+			</tr>
+			<tr>
+			<th>保護者メールアドレス</th>
+			<td><input type="email" name="p_mail"></td>
+			</tr>
+		</table>
+		<button type="submit" name="submit" value="1">送信</button>
+		<button type="submit" name="submit" value="2">キャンセル</button>
 	</form>
 
 </body>

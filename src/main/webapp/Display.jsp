@@ -10,6 +10,7 @@
 	<title>一覧</title>
 	<style type="text/css">
 		table {
+			margin-top: 10px;
 			border-collapse: collapse;
 		}
 		table, th, td {
@@ -18,8 +19,13 @@
 		th, td {
 			padding: 5px;
 		}
+		th{
+			background-color:#DDDDDD
+		}
 		.formarea {
 			margin-left: 30px;
+			margin-top: 10px;
+			margin-bottom: 10px;
 			
 		}
 		.buttonarea {
@@ -35,6 +41,7 @@
 			padding: 10px;
 			color: #999999;
 		}
+		
 	</style>
 </head>
 <body>
@@ -48,7 +55,13 @@
 			<button type="submit" name="submit" value="search">検索</button><br>
 			
 		</form>
+			
 		<form class="formarea" method="get" action="select">
+			<label><input type="checkbox" name="0" value="0" id="checkbox"/>在学</label>
+			  <label><input type="checkbox" name="1" value="1" id="checkbox1"/>休学</label>
+			  <label><input type="checkbox" name="2" value="2" id="checkbox2"/>退学</label>
+			  <label><input type="checkbox" name="3" value="3" id="checkbox3"/>除籍</label>
+			  
 			<table>
 				<tr>
 					<th>選択</th>
@@ -139,6 +152,7 @@
 				<button type="submit" name="submit" value="insert">新規登録</button>
 				<button type="submit" name="submit" value="update">編集</button>
 				<button type="submit" name="submit" value="individual">個別表示</button>
+				<button type="submit" name="submit" value="status">在籍状態検索</button>
 			</div>
 		</form>
 	</main>

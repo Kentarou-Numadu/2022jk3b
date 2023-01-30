@@ -6,6 +6,30 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<style type="text/css">
+		table {
+			border-collapse: collapse;
+			table-layout: fixed
+		}
+		table, th, td {
+			border: solid 1px #000000;
+		}
+		th, td {
+		padding: 5px;
+		}
+		th{
+			text-align:left;
+			background-color:#DDDDDD;
+		}
+		input{
+			width:350px;
+		}
+		.formarea {
+			margin-left: 30px;
+			
+		}
+		
+</style>
 </head>
 <body>
 	<%
@@ -17,23 +41,73 @@
 	}
 	%>
 	<h1>データの修正</h1>
-	<form method="get" action="updatego">
-		<p>ID：<%=bean.getId()%></p>
-		<p>氏名（漢字）：<input type="text" name="simei" value="<%=bean.getName()%>"></p>
-		<p>氏名（ふりがな）<input type="text" name="furigana" value="<%=bean.getFurigana()%>"></p>
-		<p>生年月日<input type="date" name="birth" value="<%=bean.getBirth()%>"></p>
-		<p>本人郵便番号<input type="text" name="zip" maxlength="7" value="<%=bean.getZip()%>"></p>
-		<p>本人住所<input type="text" name="address" value="<%=bean.getAddress()%>"></p>
-		<p>本人電話番号<input type="text" name="telephone" value="<%=bean.getTelephone()%>"></p>
-		<p>本人メールアドレス<input type="email" name="mail" value="<%=bean.getMail()%>"></p>
-		<p>在籍状態<input type="number" name="status" value="<%=bean.getStatus()%>"></p>
-		<p>在籍状態確定日<input type="date" name="status_day" value="<%=bean.getStatus_day()%>"></p>
-		<p>保護者氏名（漢字）<input type="text" name="p_name" value="<%=bean.getP_Name()%>"></p>
-		<p>保護者氏名（ふりがな）<input type="text" name="p_furigana" value="<%=bean.getP_Furigana()%>"></p>
-		<p>保護者郵便番号<input type="text" name="p_zip" maxlength="7" value="<%=bean.getP_Zip()%>"></p>
-		<p>保護者住所<input type="text" name="p_address" value="<%=bean.getP_Address()%>"></p>
-		<p>保護者電話番号<input type="text" name="p_telephone" value="<%=bean.getP_Telephone()%>"></p>
-		<p>保護者メールアドレス<input type="email" name="p_mail" value="<%=bean.getP_Mail()%>"></p>
+	<form class="formarea" method="get" action="updatego">
+		<table>
+		<tr>
+		<th>ID</th>
+		<td width="360px"><%=bean.getId()%></td>
+		</tr>
+		<tr>
+		<th>氏名（漢字）</th>
+		<td><label ><input type="text" name="simei" value="<%=bean.getName()%>"></label></td>
+		</tr>
+		<tr>
+		<th>氏名（ふりがな）</th>
+		<td><label><input type="text" name="furigana" value="<%=bean.getFurigana()%>"></label></td>
+		</tr>
+		<tr>
+		<th>生年月日</th>
+		<td><label><input type="date" name="birth" value="<%=bean.getBirth()%>"></label></td>
+		</tr>
+		<tr>
+		<th>本人郵便番号</th>
+		<td><label><input type="text" name="zip" maxlength="7" value="<%=bean.getZip()%>"></label></td>
+		</tr>
+		<tr>
+		<th>本人住所</th>
+		<td><label><input type="text" name="address" value="<%=bean.getAddress()%>"></label></td>
+		</tr>
+		<tr>
+		<th>本人電話番号</th>
+		<td><label><input type="text" name="telephone" value="<%=bean.getTelephone()%>"></label></td>
+		</tr>
+		<tr>
+		<th>本人メールアドレス</th>
+		<td><label><input type="email" name="mail" value="<%=bean.getMail()%>"></label></td>
+		</tr>
+		<tr>
+		<th>在籍状態</th>
+		<td><label><input type="number" name="status" value="<%=bean.getStatus()%>"></label></td>
+		</tr>
+		<tr>
+		<th>在籍状態確定日</th>
+		<td><label><input type="date" name="status_day" value="<%=bean.getStatus_day()%>"></label></td>
+		</tr>
+		<tr>
+		<th>保護者氏名（漢字）</th>
+		<td><label><input type="text" name="p_name" value="<%=bean.getP_Name()%>"></label></td>
+		</tr>
+		<tr>
+		<th>保護者氏名（ふりがな）</th>
+		<td><label><input type="text" name="p_furigana" value="<%=bean.getP_Furigana()%>"></label></td>
+		</tr>
+		<tr>
+		<th>保護者郵便番号</th>
+		<td><label><input type="text" name="p_zip" maxlength="7" value="<%=bean.getP_Zip()%>"></label></td>
+		</tr>
+		<tr>
+		<th>保護者住所</th>
+		<td><label><input type="text" name="p_address" value="<%=bean.getP_Address()%>"></label></td>
+		</tr>
+		<tr>
+		<th>保護者電話番号</th>
+		<td><label><input type="text" name="p_telephone" value="<%=bean.getP_Telephone()%>"></label></td>
+		</tr>
+		<tr>
+		<th>保護者メールアドレス</th>
+		<td><label><input type="email" name="p_mail" value="<%=bean.getP_Mail()%>"></label></td>
+		</tr>
+		</table>
 		
 		<input type="hidden" name="id" value="<%=bean.getId() %>">
 		<button type="submit" name="submit" value="1">変更</button>

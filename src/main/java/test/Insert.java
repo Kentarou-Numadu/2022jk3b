@@ -31,6 +31,12 @@ public class Insert extends HttpServlet {
 		request.setCharacterEncoding("utf-8");
 		response.setContentType("text/html; charset=utf-8");
 		
+		String submit = (String) request.getParameter("submit");
+		if (submit == null || !submit.equals("1")) {
+			response.sendRedirect("displayall");
+			return;
+		}
+		
 		String strId = request.getParameter("id");
 		String strSimei = request.getParameter("simei");
 		String strFurigana = request.getParameter("furigana");

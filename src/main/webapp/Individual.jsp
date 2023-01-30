@@ -18,6 +18,10 @@
 		th, td {
 			padding: 5px;
 		}
+		th{
+			text-align:left;
+			background-color:#DDDDDD;
+		}
 		.formarea {
 			margin-left: 30px;
 			
