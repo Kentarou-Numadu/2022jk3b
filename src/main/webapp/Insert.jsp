@@ -6,7 +6,7 @@
 <html>
 <head>
 	<meta charset="UTF-8">
-	<title>Insert title here</title>
+	<title>登録</title>
 	<style type="text/css">
 		a {
 			text-decoration: none;
@@ -42,7 +42,7 @@
 	}       //---ifを閉じるカッコ
 	%>
 	
-	<a href="displayall"><span class="buttonImage">一覧へ戻る</span></a>
+	<button type="button" onclick="location.href='displayall'">一覧へ戻る</button>
 
 </body>
 </html>

@@ -120,7 +120,9 @@
 					<td><label ><%=bean.getP_Mail()%></label></td>
 					</tr>
 			</table>
-			<button onclick="displayall">一覧へ戻る</button>
+			<div class="buttonarea">
+				<button onclick="displayall">一覧へ戻る</button>
+			</div>
 		</form>
 	</main>
 

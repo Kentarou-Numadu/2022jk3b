@@ -2,7 +2,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>データ追加画面</title>
+<title>データ登録画面</title>
 	<style type="text/css">
 			table {
 			border-collapse: collapse;
@@ -25,11 +25,14 @@
 			margin-left: 30px;
 			
 		}
+		.buttonarea {
+			margin-top: 20px;
+		}
 	</style>
 </head>
 <body>
 	<header>
-		<h1>データの追加</h1>
+		<h1>データの登録</h1>
 	</header>
 	<form class="formarea" method="get" action="insert">
 		<table>
@@ -97,8 +100,10 @@
 			<td><input type="email" name="p_mail"></td>
 			</tr>
 		</table>
-		<button type="submit" name="submit" value="1">送信</button>
-		<button type="submit" name="submit" value="2">キャンセル</button>
+		<div class="buttonarea">
+			<button type="submit" name="submit" value="1">送信</button>
+			<button type="submit" name="submit" value="2">キャンセル</button>
+		</div>
 	</form>
 
 </body>

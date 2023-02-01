@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>編集</title>
 <style type="text/css">
 		table {
 			border-collapse: collapse;
@@ -27,6 +27,9 @@
 		.formarea {
 			margin-left: 30px;
 			
+		}
+		.buttonarea {
+			margin-top: 20px;
 		}
 		
 </style>
@@ -110,9 +113,10 @@
 		</table>
 		
 		<input type="hidden" name="id" value="<%=bean.getId() %>">
-		<button type="submit" name="submit" value="1">変更</button>
-		<button type="submit" name="submit" value="2">キャンセル</button>
-		<button type="reset">リセット</button>
-
+		<div class="buttonarea">
+			<button type="submit" name="submit" value="1">変更</button>
+			<button type="submit" name="submit" value="2">キャンセル</button>
+			<button type="reset">リセット</button>
+		</div>
 </body>
 </html>

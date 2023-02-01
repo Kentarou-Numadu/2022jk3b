@@ -61,6 +61,7 @@
 			  <label><input type="checkbox" name="1" value="1" id="checkbox1"/>休学</label>
 			  <label><input type="checkbox" name="2" value="2" id="checkbox2"/>退学</label>
 			  <label><input type="checkbox" name="3" value="3" id="checkbox3"/>除籍</label>
+			  <button type="submit" name="submit" value="status">在籍状態検索</button>
 			  
 			<table>
 				<tr>
@@ -149,10 +150,11 @@
 				%>
 			
 			<div class="buttonarea">
+				
 				<button type="submit" name="submit" value="insert">新規登録</button>
 				<button type="submit" name="submit" value="update">編集</button>
 				<button type="submit" name="submit" value="individual">個別表示</button>
-				<button type="submit" name="submit" value="status">在籍状態検索</button>
+				<button type="button" onclick="location.href='displayall'">全生徒一覧</button>
 			</div>
 		</form>
 	</main>
