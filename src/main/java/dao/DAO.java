@@ -254,5 +254,24 @@ public class DAO extends Conn implements Serializable{
 		return allPage;
 		}
 	
+	public int getMaxPage2(String status,String status1,String status2,String status3 ) {
+		int allPage = -1;
+		try {
+			String sql = "select count(*) as cnt from gakusei_master where enrollment_status like ? or enrollment_status like ? or enrollment_status like ? or enrollment_status like ?";
+			PreparedStatement st = con.prepareStatement(sql);
+			st.setString(1, "%"+status+"%");
+			st.setString(2, "%"+status1+"%");
+			st.setString(3, "%"+status2+"%");
+			st.setString(4, "%"+status3+"%");
+			ResultSet rs = st.executeQuery();
+			rs.next();int records = rs.getInt("cnt");
+			allPage = (records -1) / MAXROW + 1;
+		} catch (Exception e) {
+			e.printStackTrace();
+			allPage = 0;
+		}
+		return allPage;
+		}
+	
 	
 }

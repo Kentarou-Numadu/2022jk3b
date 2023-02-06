@@ -54,19 +54,21 @@ public class SelectStatus extends HttpServlet {
 			String status1 = (String) request.getParameter("1");
 			String status2 = (String) request.getParameter("2");
 			String status3 = (String) request.getParameter("3");
-			list= dao.selectData(page,status,status1,status2,status3);
+			
 			if(status == null&& status1==null&&status2==null&&status3==null||list==null) {
 				errflag = true;
 			}
+			
 			if(errflag) {
 				response.sendRedirect("displayall");
 			}else {
+			list= dao.selectData(page,status,status1,status2,status3);
 				//---更新用のフォームを呼び出す
 			request.setAttribute("data", list);
 			
 			request.setAttribute("page", page);
 			
-			request.setAttribute("allpage", dao.getMaxPage(keyword));
+			request.setAttribute("allpage", dao.getMaxPage2(status,status1,status2,status3));
 			
 			request.setAttribute("keyword", keyword);
 			// jspへ遷移
