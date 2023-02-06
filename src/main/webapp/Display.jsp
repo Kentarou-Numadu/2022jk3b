@@ -9,6 +9,9 @@
 	<meta charset="UTF-8">
 	<title>一覧</title>
 	<style type="text/css">
+		h1{
+			margin-left:25px;
+		}
 		table {
 			margin-top: 10px;
 			border-collapse: collapse;

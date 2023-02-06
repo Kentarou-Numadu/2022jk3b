@@ -7,6 +7,9 @@
 <meta charset="UTF-8">
 <title>編集</title>
 <style type="text/css">
+		h1{
+			margin-left:25px;
+		}
 		table {
 			border-collapse: collapse;
 			table-layout: fixed
